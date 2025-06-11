@@ -1,0 +1,90 @@
+{
+  "Cuestionarios": [
+    {
+      "id": "1",
+      "Nombre": "Cuestionario de Introducción",
+      "Descripcion": "Preguntas generales para conocerte mejor."
+    },
+    {
+      "id": "2",
+      "Nombre": "Preferencias Personales",
+      "Descripcion": "Un conjunto de preguntas sobre tus gustos y elecciones personales."
+    }
+  ],
+  "PreguntasCuestionario": [
+    { "cuestionarioId": "1", "id": "p1", "titulo": "¿Cuál es tu nombre?" },
+    {
+      "cuestionarioId": "1",
+      "id": "p2",
+      "titulo": "¿Cuál es tu color favorito?"
+    },
+    {
+      "cuestionarioId": "2",
+      "id": "p3",
+      "titulo": "¿Qué tipo de música prefieres?"
+    },
+    {
+      "cuestionarioId": "2",
+      "id": "p4",
+      "titulo": "¿Cuál es tu comida favorita?"
+    },
+    {
+      "cuestionarioId": "2",
+      "id": "p5",
+      "titulo": "¿Prefieres el campo o la ciudad?"
+    }
+  ],
+  "Preguntas": [
+    {
+      "id": "p1",
+      "Titulo": "¿Cuál es tu nombre?",
+      "Pregunta": "Escribe tu nombre completo.",
+      "Tipo": "Texto Libre",
+      "Opciones": []
+    },
+    {
+      "id": "p2",
+      "Titulo": "¿Cuál es tu color favorito?",
+      "Pregunta": "Elige tu color favorito.",
+      "Tipo": "Multiple Opcion",
+      "Opciones": ["Rojo", "Azul", "Verde", "Amarillo"]
+    },
+    {
+      "id": "p3",
+      "Titulo": "¿Qué tipo de música prefieres?",
+      "Pregunta": "Selecciona el género musical que más escuchas.",
+      "Tipo": "Multiple Opcion",
+      "Opciones": ["Pop", "Rock", "Clásica", "Reguetón", "Jazz"]
+    },
+    {
+      "id": "p4",
+      "Titulo": "¿Cuál es tu comida favorita?",
+      "Pregunta": "Escribe tu comida favorita.",
+      "Tipo": "Texto Libre",
+      "Opciones": []
+    },
+    {
+      "id": "p5",
+      "Titulo": "¿Prefieres el campo o la ciudad?",
+      "Pregunta": "Selecciona tu preferencia de entorno.",
+      "Tipo": "Multiple Opcion",
+      "Opciones": ["Campo", "Ciudad"]
+    }
+  ],
+  "Respuestas": {
+    "usuario1": {
+      "p1": {
+        "timeStamp": "2025-05-19T21:52:32.457304",
+        "answer": "Juan Pérez"
+      },
+      "p2": {
+        "timeStamp": "2025-05-19T21:52:32.457316",
+        "answer": "Azul"
+      },
+      "p3": {
+        "timeStamp": "2025-05-19T21:52:32.457320",
+        "answer": "Rock"
+      }
+    }
+  }
+}
