@@ -37,38 +37,33 @@
   "Preguntas": [
     {
       "id": "p1",
-      "Titulo": "¿Cuál es tu nombre?",
-      "Pregunta": "Escribe tu nombre completo.",
-      "Tipo": "Texto Libre",
-      "Opciones": []
+      "titulo": "¿Cuál es tu nombre?",
+      "pregunta": "Escribe tu nombre completo.",
+      "opciones": []
     },
     {
       "id": "p2",
-      "Titulo": "¿Cuál es tu color favorito?",
-      "Pregunta": "Elige tu color favorito.",
-      "Tipo": "Multiple Opcion",
-      "Opciones": ["Rojo", "Azul", "Verde", "Amarillo"]
+      "titulo": "¿Cuál es tu color favorito?",
+      "pregunta": "Elige tu color favorito.",
+      "opciones": ["Rojo", "Azul", "Verde", "Amarillo"]
     },
     {
       "id": "p3",
-      "Titulo": "¿Qué tipo de música prefieres?",
-      "Pregunta": "Selecciona el género musical que más escuchas.",
-      "Tipo": "Multiple Opcion",
-      "Opciones": ["Pop", "Rock", "Clásica", "Reguetón", "Jazz"]
+      "titulo": "¿Qué tipo de música prefieres?",
+      "pregunta": "Selecciona el género musical que más escuchas.",
+      "opciones": ["Pop", "Rock", "Clásica", "Reguetón", "Jazz"]
     },
     {
       "id": "p4",
-      "Titulo": "¿Cuál es tu comida favorita?",
-      "Pregunta": "Escribe tu comida favorita.",
-      "Tipo": "Texto Libre",
-      "Opciones": []
+      "titulo": "¿Cuál es tu comida favorita?",
+      "pregunta": "Escribe tu comida favorita.",
+      "opciones": []
     },
     {
       "id": "p5",
-      "Titulo": "¿Prefieres el campo o la ciudad?",
-      "Pregunta": "Selecciona tu preferencia de entorno.",
-      "Tipo": "Multiple Opcion",
-      "Opciones": ["Campo", "Ciudad"]
+      "titulo": "¿Prefieres el campo o la ciudad?",
+      "pregunta": "Selecciona tu preferencia de entorno.",
+      "opciones": ["Campo", "Ciudad"]
     }
   ],
   "Respuestas": {
