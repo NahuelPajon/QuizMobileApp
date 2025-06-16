@@ -1,6 +1,7 @@
-import React from "react";
-import { View } from "react-native";
+import { Link } from "expo-router";
 
 export default function Index() {
-  return <View></View>;
+  return (
+    <Link href="/login">Logincito</Link>
+  );
 }
