@@ -1,11 +1,36 @@
 import { useState } from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 export default function PantallaLogin() {
     const [nombreUsuario, setNombreUsuario] = useState('');
+    //const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-    const handleLogin = () => {
-        alert("Bienvenido,", nombreUsuario)
+    const handleLogin = async () => {
+        //alert("Bienvenido,", nombreUsuario)
+        try {
+            //const url = "http://localhost:3000/Respuestas";
+            const response = await fetch(`http://localhost:3000/Respuestas/${nombreUsuario}`);
+            if (!response.ok) {
+                throw new Error("Error de red.");
+            }
+            const data = await response.json();
+            if (data.length > 0) {
+                Alert.alert('Login exitoso', `Bienvenido ${nombreUsuario}`);
+            }
+            else {
+                const response = await fetch('http://localhost:3000/Respuestas/', {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(nombreUsuario),
+                });
+                Alert.alert('Nuevo usuario registrado con éxito', `Bienvenido ${nombreUsuario}`);
+            }
+        } catch (err) {
+            setError(err.message);
+        }
     };
 
     return (

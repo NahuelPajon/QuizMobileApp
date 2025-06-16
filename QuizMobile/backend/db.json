@@ -71,20 +71,40 @@
       "Opciones": ["Campo", "Ciudad"]
     }
   ],
-  "Respuestas": {
-    "usuario1": {
-      "p1": {
-        "timeStamp": "2025-05-19T21:52:32.457304",
-        "answer": "Juan Pérez"
-      },
-      "p2": {
-        "timeStamp": "2025-05-19T21:52:32.457316",
-        "answer": "Azul"
-      },
-      "p3": {
-        "timeStamp": "2025-05-19T21:52:32.457320",
-        "answer": "Rock"
-      }
+  "Respuestas": [
+    {
+      "username": "usuario1",
+      "respuestas": [
+        {
+          "p1": {
+            "timeStamp": "2025-05-19T21:52:32.457304",
+            "answer": "Juan Pérez"
+          }
+        },
+        {
+          "p2": {
+            "timeStamp": "2025-05-19T21:52:32.457316",
+            "answer": "Azul"
+          }
+        }
+      ]
+    },
+    {
+      "username": "usuario2",
+      "respuestas": [
+        {
+          "p1": {
+            "timeStamp": "2025-05-19T21:52:32.457304",
+            "answer": "Pepito"
+          }
+        },
+        {
+          "p2": {
+            "timeStamp": "2025-05-19T21:52:32.457316",
+            "answer": "Rojo"
+          }
+        }
+      ]
     }
-  }
+  ]
 }
