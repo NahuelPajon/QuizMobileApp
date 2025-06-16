@@ -1,4 +1,7 @@
+import { useRoute } from "@react-navigation/native";
 import React, { useState, useEffect } from "react";
+import { useNavigation } from "@react-navigation/native";
+
 
 export default function questionPage() {
   const [questions, setQuestions] = useState([]);
@@ -22,10 +25,14 @@ export default function questionPage() {
       }
     };
 
-    fetchQuestions();  
+    fetchQuestions();
   }, []);
 
-  const { id: paramId } = useParams();
+  // Navegar a la pregunta con id = 5
+  navigation.navigate("QuestionPage", { id: 5 });
+  //   const route = useRoute();
+  //   const paramId = route.params?.id; // Obtiene el id de la pregunta desde los parámetros de la ruta
+
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error: {error}</p>;
 
