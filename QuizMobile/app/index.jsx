@@ -1,15 +1,11 @@
-import { Link } from "expo-router";
-import { View, Text, TouchableOpacity } from "react-native";
+import React from "react";
+import { View } from "react-native";
+import HomePage from "./homepage";
 
-export default function Home() {
+export default function Index() {
   return (
-    <View style={{ padding: 20 }}>
-      <Text>INICIAR SESIÓN</Text>
-      <Link href="/quiz/1" asChild>
-        <TouchableOpacity style={{ marginTop: 20, backgroundColor: "#007AFF", padding: 10 }}>
-          <Text style={{ color: "#fff", textAlign: "center" }}>Ingresar</Text>
-        </TouchableOpacity>
-      </Link>
+    <View style={{ flex: 1 }}>
+      <HomePage />
     </View>
   );
 }
