@@ -7,10 +7,9 @@ export default function PantallaLogin() {
     const [error, setError] = useState(null);
 
     const handleLogin = async () => {
-        //alert("Bienvenido,", nombreUsuario)
         try {
-            //const url = "http://localhost:3000/Respuestas";
-            const response = await fetch(`http://localhost:3000/Respuestas/${nombreUsuario}`);
+            const url = "http://localhost:3000/Respuestas";
+            const response = await fetch(`${url}?username=${nombreUsuario}`);
             if (!response.ok) {
                 throw new Error("Error de red.");
             }
@@ -19,12 +18,16 @@ export default function PantallaLogin() {
                 Alert.alert('Login exitoso', `Bienvenido ${nombreUsuario}`);
             }
             else {
-                const response = await fetch('http://localhost:3000/Respuestas/', {
+                const nuevoUsuario = {
+                    username: nombreUsuario,
+                    respuestas: []
+                };
+                const response = await fetch(url, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify(nombreUsuario),
+                    body: JSON.stringify(nuevoUsuario),
                 });
                 Alert.alert('Nuevo usuario registrado con éxito', `Bienvenido ${nombreUsuario}`);
             }

@@ -12,7 +12,11 @@
     }
   ],
   "PreguntasCuestionario": [
-    { "cuestionarioId": "1", "id": "p1", "titulo": "¿Cuál es tu nombre?" },
+    {
+      "cuestionarioId": "1",
+      "id": "p1",
+      "titulo": "¿Cuál es tu nombre?"
+    },
     {
       "cuestionarioId": "1",
       "id": "p2",
@@ -47,14 +51,25 @@
       "Titulo": "¿Cuál es tu color favorito?",
       "Pregunta": "Elige tu color favorito.",
       "Tipo": "Multiple Opcion",
-      "Opciones": ["Rojo", "Azul", "Verde", "Amarillo"]
+      "Opciones": [
+        "Rojo",
+        "Azul",
+        "Verde",
+        "Amarillo"
+      ]
     },
     {
       "id": "p3",
       "Titulo": "¿Qué tipo de música prefieres?",
       "Pregunta": "Selecciona el género musical que más escuchas.",
       "Tipo": "Multiple Opcion",
-      "Opciones": ["Pop", "Rock", "Clásica", "Reguetón", "Jazz"]
+      "Opciones": [
+        "Pop",
+        "Rock",
+        "Clásica",
+        "Reguetón",
+        "Jazz"
+      ]
     },
     {
       "id": "p4",
@@ -68,7 +83,10 @@
       "Titulo": "¿Prefieres el campo o la ciudad?",
       "Pregunta": "Selecciona tu preferencia de entorno.",
       "Tipo": "Multiple Opcion",
-      "Opciones": ["Campo", "Ciudad"]
+      "Opciones": [
+        "Campo",
+        "Ciudad"
+      ]
     }
   ],
   "Respuestas": [
@@ -87,7 +105,8 @@
             "answer": "Azul"
           }
         }
-      ]
+      ],
+      "id": "9d21"
     },
     {
       "username": "usuario2",
@@ -104,7 +123,23 @@
             "answer": "Rojo"
           }
         }
-      ]
+      ],
+      "id": "d878"
+    },
+    {
+      "id": "faef",
+      "username": "usuario5",
+      "respuestas": []
+    },
+    {
+      "id": "8ff8",
+      "username": "usuario3",
+      "respuestas": []
+    },
+    {
+      "id": "9f1e",
+      "username": "usuario4",
+      "respuestas": []
     }
   ]
 }
