@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -7,8 +7,8 @@ import {
   StyleSheet,
   ActivityIndicator,
   Platform,
-} from 'react-native';
-import { useLocalSearchParams, useRouter } from 'expo-router';
+} from "react-native";
+import { useLocalSearchParams, useRouter } from "expo-router";
 
 export default function QuizPage() {
   const { id } = useLocalSearchParams(); // ID viene de la ruta dinámica
@@ -19,14 +19,14 @@ export default function QuizPage() {
   const [loading, setLoading] = useState(true);
 
   const API_CUEST =
-    Platform.OS === 'web'
+    Platform.OS === "web"
       ? `http://localhost:3000/Cuestionarios/${id}`
-      : `http://10.13.12.139:3000/Cuestionarios/${id}`;
+      : `http://192.168.1.98:3000/Cuestionarios/${id}`;
 
   const API_PREG =
-    Platform.OS === 'web'
+    Platform.OS === "web"
       ? `http://localhost:3000/PreguntasCuestionario?cuestionarioId=${id}`
-      : `http://10.13.12.139:3000/PreguntasCuestionario?cuestionarioId=${id}`;
+      : `http://192.168.1.98:3000/PreguntasCuestionario?cuestionarioId=${id}`;
 
   useEffect(() => {
     fetch(API_CUEST)
@@ -40,7 +40,7 @@ export default function QuizPage() {
         setLoading(false);
       })
       .catch((err) => {
-        console.error('Error al cargar preguntas:', err);
+        console.error("Error al cargar preguntas:", err);
         setLoading(false);
       });
   }, [id]);
@@ -62,7 +62,11 @@ export default function QuizPage() {
       <Text style={styles.subtitle}>Preguntas</Text>
       {preguntas.length > 0 ? (
         preguntas.map((pregunta) => (
-          <TouchableOpacity key={pregunta.id} style={styles.button}>
+          <TouchableOpacity
+            key={pregunta.id}
+            style={styles.button}
+            onPress={() => router.push(`/${id}/${pregunta.id}`)}
+          >
             <Text style={styles.buttonText}>{pregunta.titulo}</Text>
           </TouchableOpacity>
         ))
@@ -70,7 +74,10 @@ export default function QuizPage() {
         <Text>No hay preguntas disponibles.</Text>
       )}
 
-      <TouchableOpacity style={[styles.button, styles.backButton]} onPress={() => router.back()}>
+      <TouchableOpacity
+        style={[styles.button, styles.backButton]}
+        onPress={() => router.back()}
+      >
         <Text style={styles.buttonText}>Volver</Text>
       </TouchableOpacity>
     </ScrollView>
@@ -80,12 +87,12 @@ export default function QuizPage() {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     flex: 1,
   },
   title: {
     fontSize: 26,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 10,
   },
   description: {
@@ -94,22 +101,22 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginTop: 30,
     marginBottom: 10,
   },
   button: {
-    backgroundColor: '#007AFF',
+    backgroundColor: "#007AFF",
     padding: 12,
     borderRadius: 8,
     marginBottom: 10,
   },
   backButton: {
     marginTop: 20,
-    backgroundColor: '#888',
+    backgroundColor: "#888",
   },
   buttonText: {
-    color: '#fff',
-    textAlign: 'center',
+    color: "#fff",
+    textAlign: "center",
   },
 });
