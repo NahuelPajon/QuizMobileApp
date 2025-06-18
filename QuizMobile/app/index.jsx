@@ -1,7 +1,10 @@
-import { Link } from "expo-router";
+import { View } from "react-native";
+import PantallaLogin from "./PantallaLogin";
 
 export default function Index() {
   return (
-    <Link href="/login">Logincito</Link>
+    <View style={{ flex: 1 }}>
+      <PantallaLogin />
+    </View>
   );
 }

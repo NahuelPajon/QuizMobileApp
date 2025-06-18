@@ -1,3 +1,4 @@
+import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
@@ -5,11 +6,12 @@ export default function PantallaLogin() {
     const [nombreUsuario, setNombreUsuario] = useState('');
     //const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const router = useRouter();
 
     const handleLogin = async () => {
         try {
-            const url = "http://localhost:3000/Respuestas";
-            const response = await fetch(`${url}?username=${nombreUsuario}`);
+            const URL = "http://localhost:3000/Respuestas";
+            const response = await fetch(`${URL}?username=${nombreUsuario}`);
             if (!response.ok) {
                 throw new Error("Error de red.");
             }
@@ -22,7 +24,7 @@ export default function PantallaLogin() {
                     username: nombreUsuario,
                     respuestas: []
                 };
-                const response = await fetch(url, {
+                const response = await fetch(URL, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -34,6 +36,7 @@ export default function PantallaLogin() {
         } catch (err) {
             setError(err.message);
         }
+        router.push('/homepage');
     };
 
     return (
