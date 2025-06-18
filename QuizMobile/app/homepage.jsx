@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, Button, FlatList, TouchableOpacity, ActivityIndicator, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Platform } from "react-native";
+import { useRouter } from 'expo-router';
+
 
 export default function HomePage() {
+  const router = useRouter();
   const [cuestionarios, setCuestionarios] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigation = useNavigation();
@@ -40,7 +43,7 @@ export default function HomePage() {
       <Text style={styles.description}>{item.Descripcion}</Text>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('QuizPage', { id: item.id })}
+        onPress={() => router.push(`/${item.id}`)}
       >
         <Text style={styles.buttonText}>Ver preguntas</Text>
       </TouchableOpacity>
