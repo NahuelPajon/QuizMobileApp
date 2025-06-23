@@ -1,32 +1,42 @@
-import { useNavigation, useRoute } from "@react-navigation/native";
-import { useEffect, useState } from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { useLocalSearchParams, useRouter } from "expo-router";
+import { useEffect, useState } from "react";
+import {
+  Platform,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
-export default function questionPage() {
-  const [questions, setQuestions] = useState([]);
+export default function QuestionPage() {
+  const [question, setQuestion] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const navigation = useNavigation();
-  const route = useRoute();
-  // const paramId = route.params?.id; // Obtiene el id de la pregunta desde los parámetros de la ruta
-  const { preguntaId } = useLocalSearchParams(); // ID viene de la ruta dinámica
-  // const router = useRouter();
+  const [respuesta, setRespuesta] = useState("");
+  const [opcionSeleccionada, setOpcionSeleccionada] = useState(null);
+  const { preguntaId } = useLocalSearchParams();
+  const router = useRouter();
 
   const API_URL =
     Platform.OS === "web"
-      ? `http://localhost:3000/Cuestionarios/Preguntas/${preguntaId}` //para verlo desde la web
-      : `http://192.168.1.98:3000/Cuestionarios/Preguntas/${preguntaId}`; //para verlo desde el celular
+      ? `http://localhost:3000/Preguntas/${preguntaId}`
+      : `http://192.168.1.98:3000/Preguntas/${preguntaId}`;
+
+  const API_URL_RESPUESTA =
+    Platform.OS === "web"
+      ? `http://localhost:3000/Respuestas/usuario1` // agregar la respuesta específica del usuario. Pendiente logica de LOGIN
+      : `http://192.168.1.98:3000/Respuestas`; // agregar la respuesta específica del usuario. Pendiente logica de LOGIN
 
   useEffect(() => {
-    const fetchQuestions = async () => {
+    const fetchQuestion = async () => {
       try {
         const response = await fetch(API_URL);
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
         const data = await response.json();
-        setQuestions(data); // actualiza el estado de questions con los datos obtenidos
+        setQuestion(data);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -34,18 +44,36 @@ export default function questionPage() {
       }
     };
 
-    fetchQuestions();
-  }, []);
+    fetchQuestion();
+  }, [preguntaId]);
 
-  // Navegar a la pregunta con id = 5
-  // navigation.navigate("QuestionPage", { id: 5 });
+  const saveQuestion = async () => {
+    try {
+      const response = await fetch(API_URL_RESPUESTA, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          preguntaId,
+          respuesta:
+            !question.opciones || question.opciones.length === 0
+              ? respuesta
+              : opcionSeleccionada,
+          timestamp: new Date().toISOString(),
+        }),
+      });
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      alert("Respuesta guardada correctamente");
+    } catch (err) {
+      alert(err.message);
+    }
+  };
 
   if (loading) return <Text>Cargando...</Text>;
   if (error) return <Text>Error: {error}</Text>;
-
-  const question = questions.find(
-    (question) => String(question.id) === String(preguntaId)
-  );
   if (!question) return <Text>Pregunta no encontrada</Text>;
 
   return (
@@ -58,6 +86,8 @@ export default function questionPage() {
           <Text>Esta pregunta de tipo 'Texto Libre'</Text>
           <TextInput
             placeholder="Escribe tu respuesta aquí"
+            value={respuesta}
+            onChangeText={setRespuesta}
             style={{
               borderWidth: 1,
               marginVertical: 8,
@@ -71,6 +101,7 @@ export default function questionPage() {
               borderRadius: 6,
               alignItems: "center",
             }}
+            onPress={saveQuestion}
           >
             <Text style={{ color: "#fff", fontWeight: "bold" }}>
               Enviar Respuesta
@@ -81,16 +112,17 @@ export default function questionPage() {
         <View>
           <Text>Esta pregunta de tipo 'Multiple Opción'</Text>
           <Text style={{ fontSize: 16, marginTop: 8 }}>Opciones:</Text>
-          {question.opciones.map((opcion) => (
+          {question.opciones.map((opcion, idx) => (
             <TouchableOpacity
-              key={opcion.id}
+              key={idx}
               style={{
                 flexDirection: "row",
                 alignItems: "center",
                 marginVertical: 4,
               }}
+              onPress={() => setOpcionSeleccionada(opcion)}
             >
-              <Text style={{ marginLeft: 8 }}>{opcion.texto}</Text>
+              <Text style={{ marginLeft: 8 }}>{opcion}</Text>
             </TouchableOpacity>
           ))}
           <TouchableOpacity
@@ -101,6 +133,7 @@ export default function questionPage() {
               alignItems: "center",
               marginTop: 12,
             }}
+            onPress={saveQuestion}
           >
             <Text style={{ color: "#fff", fontWeight: "bold" }}>
               Enviar Respuesta
@@ -111,3 +144,5 @@ export default function questionPage() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({});

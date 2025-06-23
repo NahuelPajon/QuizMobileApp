@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import { useLocalSearchParams, useRouter } from "expo-router";
+import { useEffect, useState } from "react";
 import {
-  View,
-  Text,
-  TouchableOpacity,
-  ScrollView,
-  StyleSheet,
   ActivityIndicator,
   Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import { useLocalSearchParams, useRouter } from "expo-router";
 
 export default function QuizPage() {
   const { id } = useLocalSearchParams(); // ID viene de la ruta dinámica
@@ -60,19 +60,15 @@ export default function QuizPage() {
       <Text style={styles.description}>{cuestionario?.Descripcion}</Text>
 
       <Text style={styles.subtitle}>Preguntas</Text>
-      {preguntas.length > 0 ? (
-        preguntas.map((pregunta) => (
-          <TouchableOpacity
-            key={pregunta.id}
-            style={styles.button}
-            onPress={() => router.push(`/${id}/${pregunta.id}`)}
-          >
-            <Text style={styles.buttonText}>{pregunta.titulo}</Text>
-          </TouchableOpacity>
-        ))
-      ) : (
-        <Text>No hay preguntas disponibles.</Text>
-      )}
+      {preguntas.map((pregunta) => (
+        <TouchableOpacity
+          key={pregunta.id}
+          style={styles.button}
+          onPress={() => router.push(`/pregunta/${pregunta.id}`)}
+        >
+          <Text style={styles.buttonText}>{pregunta.titulo}</Text>
+        </TouchableOpacity>
+      ))}
 
       <TouchableOpacity
         style={[styles.button, styles.backButton]}
