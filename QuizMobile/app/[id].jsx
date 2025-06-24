@@ -21,12 +21,12 @@ export default function QuizPage() {
   const API_CUEST =
     Platform.OS === "web"
       ? `http://localhost:3000/Cuestionarios/${id}`
-      : `http://192.168.1.98:3000/Cuestionarios/${id}`;
+      : `http://192.168.1.125:3000/Cuestionarios/${id}`;
 
   const API_PREG =
     Platform.OS === "web"
       ? `http://localhost:3000/PreguntasCuestionario?cuestionarioId=${id}`
-      : `http://192.168.1.98:3000/PreguntasCuestionario?cuestionarioId=${id}`;
+      : `http://192.168.1.125:3000/PreguntasCuestionario?cuestionarioId=${id}`;
 
   useEffect(() => {
     fetch(API_CUEST)
@@ -114,5 +114,6 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#fff",
     textAlign: "center",
+    fontWeight: "bold",
   },
 });

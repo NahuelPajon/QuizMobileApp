@@ -9,10 +9,29 @@
       "id": "2",
       "Nombre": "Preferencias Personales",
       "Descripcion": "Un conjunto de preguntas sobre tus gustos y elecciones personales."
+    },
+    {
+      "id": "3",
+      "Nombre": "Hábitos de Estudio",
+      "Descripcion": "Preguntas sobre tus métodos y rutinas de estudio."
+    },
+    {
+      "id": "4",
+      "Nombre": "Salud y Bienestar",
+      "Descripcion": "Cuestionario sobre tus hábitos de salud y bienestar."
+    },
+    {
+      "id": "5",
+      "Nombre": "Tecnología y Redes",
+      "Descripcion": "Preguntas sobre tu relación con la tecnología y redes sociales."
     }
   ],
   "PreguntasCuestionario": [
-    { "cuestionarioId": "1", "id": "p1", "titulo": "¿Cuál es tu nombre?" },
+    {
+      "cuestionarioId": "1",
+      "id": "p1",
+      "titulo": "¿Cuál es tu nombre?"
+    },
     {
       "cuestionarioId": "1",
       "id": "p2",
@@ -32,6 +51,41 @@
       "cuestionarioId": "2",
       "id": "p5",
       "titulo": "¿Prefieres el campo o la ciudad?"
+    },
+    {
+      "cuestionarioId": "3",
+      "id": "p6",
+      "titulo": "¿A qué hora prefieres estudiar?"
+    },
+    {
+      "cuestionarioId": "3",
+      "id": "p7",
+      "titulo": "¿Estudias solo o en grupo?"
+    },
+    {
+      "cuestionarioId": "3",
+      "id": "p8",
+      "titulo": "¿Con qué frecuencia revisas tus apuntes?"
+    },
+    {
+      "cuestionarioId": "4",
+      "id": "p9",
+      "titulo": "¿Cuántas horas duermes al día?"
+    },
+    {
+      "cuestionarioId": "4",
+      "id": "p10",
+      "titulo": "¿Realizas actividad física regularmente?"
+    },
+    {
+      "cuestionarioId": "5",
+      "id": "p11",
+      "titulo": "¿Cuánto tiempo pasas en redes sociales?"
+    },
+    {
+      "cuestionarioId": "5",
+      "id": "p12",
+      "titulo": "¿Qué dispositivo usas más?"
     }
   ],
   "Preguntas": [
@@ -45,13 +99,24 @@
       "id": "p2",
       "titulo": "¿Cuál es tu color favorito?",
       "pregunta": "Elige tu color favorito.",
-      "opciones": ["Rojo", "Azul", "Verde", "Amarillo"]
+      "opciones": [
+        "Rojo",
+        "Azul",
+        "Verde",
+        "Amarillo"
+      ]
     },
     {
       "id": "p3",
       "titulo": "¿Qué tipo de música prefieres?",
       "pregunta": "Selecciona el género musical que más escuchas.",
-      "opciones": ["Pop", "Rock", "Clásica", "Reguetón", "Jazz"]
+      "opciones": [
+        "Pop",
+        "Rock",
+        "Clásica",
+        "Reguetón",
+        "Jazz"
+      ]
     },
     {
       "id": "p4",
@@ -63,23 +128,147 @@
       "id": "p5",
       "titulo": "¿Prefieres el campo o la ciudad?",
       "pregunta": "Selecciona tu preferencia de entorno.",
-      "opciones": ["Campo", "Ciudad"]
+      "opciones": [
+        "Campo",
+        "Ciudad"
+      ]
+    },
+    {
+      "id": "p6",
+      "titulo": "¿A qué hora prefieres estudiar?",
+      "pregunta": "Selecciona el horario que prefieres para estudiar.",
+      "opciones": [
+        "Mañana",
+        "Tarde",
+        "Noche"
+      ]
+    },
+    {
+      "id": "p7",
+      "titulo": "¿Estudias solo o en grupo?",
+      "pregunta": "Selecciona tu método de estudio preferido.",
+      "opciones": [
+        "Solo",
+        "En grupo"
+      ]
+    },
+    {
+      "id": "p8",
+      "titulo": "¿Con qué frecuencia revisas tus apuntes?",
+      "pregunta": "Selecciona la frecuencia.",
+      "opciones": [
+        "Diariamente",
+        "Semanalmente",
+        "Antes de los exámenes",
+        "Rara vez"
+      ]
+    },
+    {
+      "id": "p9",
+      "titulo": "¿Cuántas horas duermes al día?",
+      "pregunta": "Selecciona el rango de horas.",
+      "opciones": [
+        "Menos de 5",
+        "5-7",
+        "7-9",
+        "Más de 9"
+      ]
+    },
+    {
+      "id": "p10",
+      "titulo": "¿Realizas actividad física regularmente?",
+      "pregunta": "Selecciona una opción.",
+      "opciones": [
+        "Sí",
+        "No"
+      ]
+    },
+    {
+      "id": "p11",
+      "titulo": "¿Cuánto tiempo pasas en redes sociales?",
+      "pregunta": "Selecciona el rango de tiempo diario.",
+      "opciones": [
+        "Menos de 1 hora",
+        "1-3 horas",
+        "3-5 horas",
+        "Más de 5 horas"
+      ]
+    },
+    {
+      "id": "p12",
+      "titulo": "¿Qué dispositivo usas más?",
+      "pregunta": "Selecciona el dispositivo.",
+      "opciones": [
+        "Smartphone",
+        "Computadora",
+        "Tablet",
+        "Otro"
+      ]
     }
   ],
-  "Respuestas": {
-    "usuario1": {
-      "p1": {
-        "timeStamp": "2025-05-19T21:52:32.457304",
-        "answer": "Juan Pérez"
-      },
-      "p2": {
-        "timeStamp": "2025-05-19T21:52:32.457316",
-        "answer": "Azul"
-      },
-      "p3": {
-        "timeStamp": "2025-05-19T21:52:32.457320",
-        "answer": "Rock"
-      }
+  "Respuestas": [
+    {
+      "id": "usuario1_p1",
+      "usuario": "usuario1",
+      "preguntaId": "p1",
+      "timeStamp": "2025-05-19T21:52:32.457304",
+      "answer": "Juan Pérez"
+    },
+    {
+      "id": "usuario1_p2",
+      "usuario": "usuario2",
+      "preguntaId": "p2",
+      "respuesta": "Azul",
+      "timestamp": "2025-06-23T23:58:00.310Z"
+    },
+    {
+      "id": "usuario1_p3",
+      "usuario": "usuario1",
+      "preguntaId": "p3",
+      "timeStamp": "2025-05-19T21:52:32.457320",
+      "answer": "Rock"
+    },
+    {
+      "id": "usuario2_p1",
+      "usuario": "usuario2",
+      "preguntaId": "p1",
+      "respuesta": "ejem",
+      "timestamp": "2025-06-24T00:53:32.069Z"
+    },
+    {
+      "id": "usuario2_p2",
+      "usuario": "usuario2",
+      "preguntaId": "p2",
+      "respuesta": "Rojo",
+      "timestamp": "2025-06-24T00:52:02.565Z"
+    },
+    {
+      "id": "usuario2_p5",
+      "usuario": "usuario2",
+      "preguntaId": "p5",
+      "respuesta": "Campo",
+      "timestamp": "2025-06-24T00:04:27.570Z"
+    },
+    {
+      "id": "usuario2_p3",
+      "usuario": "usuario2",
+      "preguntaId": "p3",
+      "respuesta": "Jazz",
+      "timestamp": "2025-06-24T00:44:11.724Z"
+    },
+    {
+      "id": "usuario2_p4",
+      "usuario": "usuario2",
+      "preguntaId": "p4",
+      "respuesta": "la que hace mi mamá",
+      "timestamp": "2025-06-24T00:51:17.021Z"
+    },
+    {
+      "id": "usuario2_p6",
+      "usuario": "usuario2",
+      "preguntaId": "p6",
+      "respuesta": "Tarde",
+      "timestamp": "2025-06-24T01:06:49.931Z"
     }
-  }
+  ]
 }
