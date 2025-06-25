@@ -1,42 +1,19 @@
 import { useRouter } from 'expo-router';
-import { useState } from 'react';
-import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { useState, useContext } from 'react';
+import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { AuthContext } from '../context/AuthContext';
 
-export default function PantallaLogin() {
+export default function Login() {
     const [nombreUsuario, setNombreUsuario] = useState('');
-    //const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const { iniciarSesion } = useContext(AuthContext);
     const router = useRouter();
 
     const handleLogin = async () => {
-        try {
-            const URL = "http://localhost:3000/Respuestas";
-            const response = await fetch(`${URL}?username=${nombreUsuario}`);
-            if (!response.ok) {
-                throw new Error("Error de red.");
-            }
-            const data = await response.json();
-            if (data.length > 0) {
-                Alert.alert('Login exitoso', `Bienvenido ${nombreUsuario}`);
-            }
-            else {
-                const nuevoUsuario = {
-                    username: nombreUsuario,
-                    respuestas: []
-                };
-                const response = await fetch(URL, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(nuevoUsuario),
-                });
-                Alert.alert('Nuevo usuario registrado con éxito', `Bienvenido ${nombreUsuario}`);
-            }
-        } catch (err) {
-            setError(err.message);
+        const u = await iniciarSesion(nombreUsuario.trim());
+        console.log(u);
+        if (u) {
+            router.replace('/homepage');
         }
-        router.push('/homepage');
     };
 
     return (

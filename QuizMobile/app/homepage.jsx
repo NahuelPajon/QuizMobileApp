@@ -13,7 +13,7 @@ export default function HomePage() {
   const API_URL =
     Platform.OS === "web"
       ? "http://localhost:3000/Cuestionarios" //para verlo desde la web
-      : "http://10.13.12.139:3000/Cuestionarios"; //para verlo desde el celular
+      : "http://192.168.1.125:3000/Cuestionarios"; //para verlo desde el celular
 
   useEffect(() => {
     fetch(API_URL)
@@ -67,6 +67,8 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     backgroundColor: '#fff',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   header: {
     fontSize: 28,

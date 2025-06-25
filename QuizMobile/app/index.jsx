@@ -1,10 +1,10 @@
 import { View } from "react-native";
-import PantallaLogin from "./PantallaLogin";
+import Login from "./login";
 
 export default function Index() {
   return (
     <View style={{ flex: 1 }}>
-      <PantallaLogin />
+      <Login />
     </View>
   );
 }
